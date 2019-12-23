@@ -43,16 +43,17 @@ int main()
 	Base2 b2;
 	Derive d1;
 
-	
+
 
 	cout << "Base1µÄ£º" << endl;
 	vfptr* p1 = (vfptr*)(*((int*)(&d1)));
 	PrintVfptr(p1);
 
 	cout << "Base2µÄ£º" << endl;
-	vfptr* p2 = (vfptr*)*((int*)((Base1*)(&d1) + 1));
+	/*vfptr* p2 = (vfptr*)*((int*)((Base1*)(&d1) + 1));*/
+	Base2* p2 = &d1;
 
-	PrintVfptr(p2);
+	PrintVfptr((vfptr*)(*(int*)p2));
 
 	system("pause");
 	return 0;
