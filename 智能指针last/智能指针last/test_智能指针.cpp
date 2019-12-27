@@ -2,6 +2,7 @@
 #include<mutex>
 #include<thread>
 #include<stdlib.h>
+#include<memory>
 using namespace std;
 
 template<class T>
@@ -113,7 +114,7 @@ template<class T>
 class Shared_ptr
 {
 public:
-	Shared_ptr(T* p = nullptr)
+	Shared_ptr(T* p)
 		:_ptr(p)
 		, _count(new int(1))
 		, _mtx(new mutex)
@@ -173,6 +174,7 @@ private:
 		_mtx->lock();
 		if (--(*_count) == 0)
 		{
+			/*_delete(_ptr);*/
 			delete _ptr;
 			delete _count;
 			Release_flag = true;
@@ -191,16 +193,44 @@ private:
 };
 
 mutex mtx;
-void test1(Shared_ptr<int>& p, int n)
+void test1(Shared_ptr<int> p, int n)
 {
 	for (int i = 0; i < n; ++i)
-	{	
-		/*mtx.lock();*/	
+	{
+		/*mtx.lock();*/
 		++(*p);
 		/*mtx.unlock();*/
 		Shared_ptr<int> copy(p);
 	}
 }
+template<class T>
+class Deletearry
+{
+public:
+	void operator()(T* p)
+	{
+		delete[] p;
+	}
+};
+
+template<class T>
+class Freetearry
+{
+public:
+	void operator()(T* p)
+	{
+		free(p);
+	}
+};
+
+class B
+{
+public:
+	~B()
+	{
+		cout << "~B()" << endl;
+	}
+};
 
 int main()
 {
@@ -211,6 +241,12 @@ int main()
 	t2.join();
 	cout << "*p = " << *p << endl;
 	cout << "_count = " << p.UseCount() << endl;
+
+	/*shared_ptr<int> p(new int[3],Deletearry<int>());
+	shared_ptr<B> p2(new B[3]);
+	shared_ptr<B> p3((B*)malloc(100));*/
+
+	/*Shared_ptr<int> p4(new int[3]);*/
 	system("pause");
 	return 0;
 }
