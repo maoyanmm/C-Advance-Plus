@@ -232,8 +232,29 @@ public:
 	}
 };
 
+template<class Mtx>
+class lockGuard
+{
+public:
+	lockGuard(Mtx& mtx)
+		:_mtx(mtx)
+	{
+		mtx.lock();
+	}
+	~lockGuard()
+	{
+		mtx.unlock();
+	}
+private:
+	lockGuard(const lockGuard& lock) = delete;
+private:
+	Mtx& _mtx;
+};
+
 int main()
 {
+	lockGuard<mutex> lock(mtx);
+
 	Shared_ptr<int> p(new int(1));
 	thread t1(test1, p, 100000);
 	thread t2(test1, p, 100000);
