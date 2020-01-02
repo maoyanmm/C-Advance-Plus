@@ -252,7 +252,7 @@ private:
 };
 
 int main()
-{
+{ 
 	lockGuard<mutex> lock(mtx);
 
 	Shared_ptr<int> p(new int(1));
