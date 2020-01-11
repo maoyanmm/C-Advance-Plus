@@ -1,7 +1,9 @@
 #include<iostream>
 using namespace std;
 #include<vector>
+#include<algorithm>
 #include<assert.h>
+#include<functional>
 
 //´òÓ¡Êý×é
 void PrintArray(int* a, int n);

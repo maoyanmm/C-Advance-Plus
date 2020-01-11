@@ -87,3 +87,46 @@ void SelectSort(int* a, int n)
 		--end;
 	}
 }
+
+//向下调整
+void ShiftDown(int* a, int n, int root)
+{
+	assert(a);
+	int parent = root;
+	int child = parent * 2 + 1;
+	while (child < n)
+	{
+		if (child < n && a[child + 1] > a[child])
+		{
+			++child;
+		}
+		if (a[child] > a[parent])
+		{
+			swap(a[child], a[parent]);
+			parent = child;
+			child = parent * 2 + 1;
+		}
+		else
+		{
+			break;
+		}
+	}
+}
+
+//堆排序
+void HeapSort(int* a, int n)
+{
+	assert(a);
+	int root = (n - 2) / 2;
+	for (int i = root; i >= 0; --i)
+	{
+		ShiftDown(a, n, i);
+	}
+	int end = n - 1;
+	while (end > 0)
+	{
+		swap(a[end], a[0]);
+		--end;
+		ShiftDown(a, end, 0);
+	}
+}
