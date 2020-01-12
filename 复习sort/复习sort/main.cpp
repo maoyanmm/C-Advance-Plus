@@ -36,6 +36,15 @@ void test4()
 	PrintArray(arr, n);
 }
 
+void test5()
+{
+	int arr[] = { 6,1,2,7,9,3,4,5,10,8 };
+	int n = sizeof(arr) / sizeof(arr[0]);
+	PrintArray(arr, n);
+	QuickSort(arr, 0,n-1);
+	PrintArray(arr, n);
+}
+
 //bool cmp(int a, int b)
 //{
 //	return a > b;
@@ -54,23 +63,8 @@ int main()
 	/*test1();*/
 	/*test2();*/
 	/*test3();*/
-	test4();
-
-
-	/*int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8 ,9 };
-	vector<int> v(arr,arr+sizeof(arr)/sizeof(arr[0]));
-	vector<int>::iterator it = find(v.begin(), v.end(), 3); 
-	cout << *it << endl;
-	v.insert(it, 99);
-	vector<int> v2{ 10, 11 };
-	v.insert(--v.end(), v2.begin(), v2.end());
-	sort(v.begin(), v.end(),ccc());
-	int size = v.size();
-	for (int i = 0; i < size; ++i)
-	{
-		cout << v[i] << ' ';
-	}
-	cout << endl;*/
+	/*test4();*/
+	test5();
 	system("pause");
 	return 0;
 }

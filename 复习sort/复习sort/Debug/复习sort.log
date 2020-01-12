@@ -1,8 +1,9 @@
-﻿生成启动时间为 2020/1/11 18:25:23。
+﻿生成启动时间为 2020/1/12 17:19:14。
      1>项目“F:\Visual studio 2013编程\代码文件\C-Advance-Plus\复习sort\复习sort\复习sort.vcxproj”在节点 2 上(Build 个目标)。
      1>ClCompile:
          F:\Visual studio 2013编程\VC\bin\CL.exe /c /I"F:\Visual studio 2013编程\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt sort.cpp
          sort.cpp
+     1>cl : 命令行 warning D9028: 最小重新生成失败，正在转换为标准生成
        Link:
          F:\Visual studio 2013编程\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\Visual studio 2013编程\代码文件\C-Advance-Plus\复习sort\Debug\复习sort.exe" /INCREMENTAL /NOLOGO /LIBPATH:"F:\Visual studio 2013编程\Visual Leak Detector\lib\Win32" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\Visual studio 2013编程\代码文件\C-Advance-Plus\复习sort\Debug\复习sort.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\Visual studio 2013编程\代码文件\C-Advance-Plus\复习sort\Debug\复习sort.lib" /MACHINE:X86 Debug\main.obj
          Debug\sort.obj
@@ -11,4 +12,4 @@
 
 生成成功。
 
-已用时间 00:00:01.01
+已用时间 00:00:01.04

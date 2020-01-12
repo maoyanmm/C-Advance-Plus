@@ -130,3 +130,57 @@ void HeapSort(int* a, int n)
 		ShiftDown(a, end, 0);
 	}
 }
+
+//部分快排
+int PartSort(int* a, int left, int right)
+{
+	assert(a);
+	int key = a[left];
+	while (left < right)
+	{
+		while (left < right && a[right] >= key)
+		{
+			--right;
+		}
+		a[left] = a[right];
+		while (left < right && a[left] <= key)
+		{
+			++left;
+		}
+		a[right] = a[left];
+	}
+	a[left] = key;
+	return left;
+}
+int PartSort2(int* a, int left, int right)
+{
+	assert(a);
+	int key = a[left];
+	int begin = left;
+	while (left < right)
+	{
+		while (left < right && a[right] >= key)
+		{
+			--right;
+		}
+		while (left < right && a[left] <= key)
+		{
+			++left;
+		}
+		swap(a[left], a[right]);
+	}
+	swap(a[left], a[begin]);
+	return left;
+}
+//快排
+void QuickSort(int* a, int left, int right)
+{
+	assert(a);
+	if (left >= right)
+	{
+		return;
+	}
+	int mid = PartSort2(a, left, right);
+	QuickSort(a, left, mid - 1);
+	QuickSort(a, mid + 1, right);
+}
