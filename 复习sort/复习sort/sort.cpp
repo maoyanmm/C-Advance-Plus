@@ -131,10 +131,43 @@ void HeapSort(int* a, int n)
 	}
 }
 
+//三数取中交换
+void GetMidSwap(int* a, int left, int right)
+{
+	assert(a);
+	int mid = (right - left) / 2 + left;
+	if ((a[right] > a[left] && a[left] > a[mid]) || (a[mid] > a[left] && a[left] > a[right]))
+	{
+		return;
+	}
+	if (a[left] < a[mid])
+	{
+		if (a[mid] < a[right])
+		{
+			swap(a[mid], a[left]);
+		}
+		else
+		{
+			swap(a[right], a[left]);
+		}
+	}
+	else
+	{
+		if (a[mid] < a[right])
+		{
+			swap(a[right], a[left]);
+		}
+		else
+		{
+			swap(a[mid], a[left]);
+		}
+	}
+}
 //部分快排
 int PartSort(int* a, int left, int right)
 {
 	assert(a);
+	GetMidSwap(a, left, right);
 	int key = a[left];
 	while (left < right)
 	{
@@ -155,6 +188,7 @@ int PartSort(int* a, int left, int right)
 int PartSort2(int* a, int left, int right)
 {
 	assert(a);
+	GetMidSwap(a, left, right);
 	int key = a[left];
 	int begin = left;
 	while (left < right)
@@ -172,6 +206,24 @@ int PartSort2(int* a, int left, int right)
 	swap(a[left], a[begin]);
 	return left;
 }
+int PartSort3(int* a, int left, int right)
+{
+	assert(a);
+	GetMidSwap(a, left, right);
+	int key = a[left];
+	int prev = left; 
+	int cur = left + 1;
+	while (cur <= right)
+	{
+		if (a[cur] <= key && ++prev != cur)
+		{
+			swap(a[cur], a[prev]);
+		}
+		++cur;
+	}
+	swap(a[prev], a[left]);
+	return prev;
+}
 //快排
 void QuickSort(int* a, int left, int right)
 {
@@ -180,7 +232,7 @@ void QuickSort(int* a, int left, int right)
 	{
 		return;
 	}
-	int mid = PartSort2(a, left, right);
+	int mid = PartSort3(a, left, right);
 	QuickSort(a, left, mid - 1);
 	QuickSort(a, mid + 1, right);
 }

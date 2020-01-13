@@ -22,7 +22,7 @@ void ShiftDown(int* a, int n, int root);
 //堆排序
 void HeapSort(int* a, int n);
 
-//三数取中交换
+//三数取中交换：目的是为了让快排划分的时候更均匀
 void GetMidSwap(int* a, int left, int right);
 
 //部分快排
