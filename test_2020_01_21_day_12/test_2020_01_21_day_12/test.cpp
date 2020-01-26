@@ -9,7 +9,7 @@ public:
 		int left = 0;
 		int right = nums.size() - 1;
 		int _min = 0;
-		int _max = 0;	
+		int _max = 0;	 
 		while (left < right && nums[left] <= nums[left + 1])
 		{
 			++left;
