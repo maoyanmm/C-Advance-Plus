@@ -71,3 +71,52 @@ public:
 	}
 
 };
+
+class Solution {
+public:
+	int row, col;
+	vector<vector<int>> direction = { { -1, 0 }, { 1, 0 }, { 0, -1 }, { 0, 1 } };
+	vector<vector<int>> record;
+	vector<vector<int>> score;
+
+	int longestIncreasingPath(vector<vector<int>>& matrix) {
+		if (matrix.empty())
+		{
+			return 0;
+		}
+		row = matrix.size();
+		col = matrix[0].size();
+		record = vector<vector<int>>(row, vector<int>(col, 0));
+		score = vector<vector<int>>(row, vector<int>(col, 0));
+		int ans = 0;
+		for (int i = 0; i < row; ++i)
+		{
+			for (int j = 0; j < col; ++j)
+			{
+				if (record[i][j] == 0)
+				{
+					ans = max(ans, def(matrix, i, j));
+				}
+			}
+		}
+		return ans;
+	}
+	int def(vector<vector<int>>& matrix, int i, int j)
+	{
+		if (score[i][j] != 0)
+		{
+			return score[i][j];
+		}
+		record[i][j] = 1;
+		for (const auto& e : direction)
+		{
+			int x = i + e[0];
+			int y = j + e[1];
+			if (x >= 0 && y >= 0 && x < row && y < col && matrix[x][y] > matrix[i][j])
+			{
+				score[i][j] = max(score[i][j], def(matrix, x, y));
+			}
+		}
+		return ++score[i][j];
+	}
+};
