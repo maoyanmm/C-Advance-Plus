@@ -236,3 +236,105 @@ void QuickSort(int* a, int left, int right)
 	QuickSort(a, left, mid - 1);
 	QuickSort(a, mid + 1, right);
 }
+//非递归快排
+void QuickSortNor(int* a, int n)
+{
+	stack<int> st;
+	int left = 0;
+	int right = n - 1;
+	int mid = (right - left) / 2 + left;
+	st.push(right);
+	st.push(left);
+	while (!st.empty())
+	{
+		left = st.top();
+		st.pop();
+		right = st.top();
+		st.pop();
+		mid = PartSort3(a, left, right);
+		if (mid + 1 < right)
+		{
+			st.push(right);
+			st.push(mid + 1);
+		}
+		if (left < mid - 1)
+		{
+			st.push(mid - 1);
+			st.push(left);
+		}
+	}
+}
+//部分归并排序
+void _MergeSort(int* a, int left, int right, int* tmp)
+{
+	if (left >= right)
+	{
+		return;
+	}
+	int mid = (right - left) / 2 + left;
+	_MergeSort(a, left, mid, tmp);
+	_MergeSort(a, mid + 1, right, tmp);
+	int begin1 = left;
+	int end1 = mid;
+	int begin2 = mid + 1;
+	int end2 = right;
+	int index = left;
+	while (begin1 <= end1 && begin2 <= end2)
+	{
+		if (a[begin1] <= a[begin2])
+		{
+			tmp[index++] = a[begin1++];
+		}
+		else
+		{
+			tmp[index++] = a[begin2++];
+		}
+	}
+	while (begin1 <= end1)
+	{
+		tmp[index++] = a[begin1++];
+	}
+	while (begin2 <= end2)
+	{
+		tmp[index++] = a[begin2++];
+	}
+	memcpy(a + left, tmp + left, sizeof(int)*(right - left + 1));
+}
+//归并排序
+void MergeSort(int* a, int n)
+{
+	int* tmp = new int[n];
+	_MergeSort(a, 0, n - 1, tmp);
+	delete[] tmp;
+}
+//计数排序
+void CountSort(int* a, int n)
+{
+	int max = a[0];
+	int min = a[0];
+	for (int i = 0; i < n; ++i)
+	{
+		if (a[i] > max)
+		{
+			max = a[i];
+		}
+		if (a[i] < min)
+		{
+			min = a[i];
+		}
+	}
+	int range = max - min + 1;
+	vector<int> count_arr(range,0);
+	for (int i = 0; i < n; ++i)
+	{
+		++count_arr[a[i] - min];
+	}
+	int index = 0;
+	for (int i = 0; i < range; ++i)
+	{
+		while (count_arr[i]--)
+		{
+			a[index++] = i + min;
+		}
+	}
+}

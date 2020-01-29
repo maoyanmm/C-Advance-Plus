@@ -45,6 +45,33 @@ void test5()
 	PrintArray(arr, n);
 }
 
+void test6()
+{
+	int arr[] = { 6, 1, 2, 7, 9, 3, 4, 5, 10, 8 };
+	int n = sizeof(arr) / sizeof(arr[0]);
+	PrintArray(arr, n);
+	QuickSortNor(arr, n);
+	PrintArray(arr, n);
+}
+
+void test7()
+{
+	int arr[] = { 6, 1, 2, 7, 9, 3, 4, 5, 10, 8 };
+	int n = sizeof(arr) / sizeof(arr[0]);
+	PrintArray(arr, n);
+	MergeSort(arr, n);
+	PrintArray(arr, n);
+}
+
+void test8()
+{
+	int arr[] = { 6, 1, 2, 7, 9, 3, 4,1,3,2, 5, 10, 8 };
+	int n = sizeof(arr) / sizeof(arr[0]);
+	PrintArray(arr, n);
+	CountSort(arr, n);
+	PrintArray(arr, n);
+}
+
 //bool cmp(int a, int b)
 //{
 //	return a > b;
@@ -64,7 +91,7 @@ int main()
 	/*test2();*/
 	/*test3();*/
 	/*test4();*/
-	test5();
+	test8();
 	system("pause");
 	return 0;
 }

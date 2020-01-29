@@ -3,6 +3,7 @@ using namespace std;
 #include<vector>
 #include<algorithm>
 #include<assert.h>
+#include<stack>
 #include<functional>
 
 //´òÓ¡Êý×é
