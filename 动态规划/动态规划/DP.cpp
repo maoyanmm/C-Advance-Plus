@@ -158,3 +158,28 @@ public:
 		return obstacleGrid[row - 1][col - 1];
 	}
 };
+
+class Solution {
+public:
+	int minPathSum(vector<vector<int> > &grid) {
+		int row = grid.size();
+		int col = grid[0].size();
+		for (int i = 1; i < col; ++i)//第一行的每个元素都只能从左边走过来
+		{
+			grid[0][i] += grid[0][i - 1];
+		}
+		for (int i = 1; i < row; ++i)//第一列的每个元素都只能从上面走过来
+		{
+			grid[i][0] += grid[i - 1][0];
+		}
+		for (int i = 1; i < row; ++i)
+		{
+			for (int j = 1; j < col; ++j)
+			{//子问题：每个点的最短路径等于上面和左边的最小值
+				grid[i][j] += min(grid[i][j - 1], grid[i - 1][j]);
+			}
+		}
+		return grid[row - 1][col - 1];
+	}
+};
+
