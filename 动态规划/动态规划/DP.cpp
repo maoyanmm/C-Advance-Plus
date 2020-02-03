@@ -222,3 +222,49 @@ int main()
 	}
 	return 0;
 }
+
+class Solution {
+public:
+	bool Is_hui(string str)
+	{
+		int left = 0;
+		int right = str.size() - 1;
+		while (left < right)
+		{
+			if (str[left] != str[right])
+			{
+				return false;
+			}
+			++left;
+			--right;
+		}
+		return true;
+	}
+	int minCut(string s) {
+		int length = s.size();
+		vector<int> dp(length + 1, -1);
+		dp[0] = 0;
+		for (int i = 0; i < length; ++i)
+		{//从头开始找已经可以划分成回文串的数字记号（第一个默认为0，这样才能开始，但是每个字符都可能被记录，所以dp的长度是length+1）
+			if (dp[i] >= 0)
+			{
+				for (int j = i; j < length; ++j)
+				{
+					if (Is_hui(s.substr(i, j - i + 1)))//以i（也就是上次划分成回文串的最后一个字母的后面一个字母）开始往后加长度，找出各种回文串
+					{
+						int tmp = dp[i] + 1;//找到回文串后，记录划分的次数，就是上次的+1
+						if (dp[j + 1] == -1)//如果这次划分的末尾，在以前没有被划分过，就直接赋值
+						{
+							dp[j + 1] = tmp;
+						}
+						else if (tmp < dp[j + 1])//如果这次划分的末尾，在以前有被划分过，就记录最小的划分次数
+						{
+							dp[j + 1] = tmp;
+						}
+					}
+				}
+			}
+		}
+		return dp[length] - 1;
+	}
+};
