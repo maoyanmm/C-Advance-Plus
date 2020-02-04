@@ -268,3 +268,43 @@ public:
 		return dp[length] - 1;
 	}
 };
+
+class Solution {
+public:
+	int minDistance(string word1, string word2) {
+		int leng1 = word1.size();
+		int leng2 = word2.size();
+		if (leng1 == 0 || leng2 == 0)
+		{
+			return max(leng1, leng2);
+		}
+		//多了一行一列相当于：word1和word2多了一个空字符
+		vector<vector<int> > dp(leng1 + 1, vector<int>(leng2 + 1, 0));
+		//下面用word1（ab）->word2(abc)
+		for (int i = 0; i <= leng1; ++i)//在第一列：由（空、a、ab）到（空）的需要变换的次数
+		{
+			dp[i][0] = i;
+		}
+		for (int i = 0; i <= leng2; ++i)//在第一行：由空到（空、a、ab、abc）的变换次数
+		{
+			dp[0][i] = i;
+		}
+		for (int i = 1; i <= leng1; ++i)//遍历word1 下标0~leng1-1 用 1~leng1
+		{
+			for (int j = 1; j <= leng2; ++j)//遍历word2 下标0~leng2-1 用 1~leng2
+			{
+				if (word1[i - 1] == word2[j - 1])
+				{//如果这次的两个字母相等，比如word1的ab 的 b 等于 word2的ab的b。
+					//这时的最小操作数等于word1和word2都将b去除时候的最小操作数。也可以理解为：这次加了b和没加b的操作数都一样少
+					dp[i][j] = dp[i - 1][j - 1];
+				}
+				else
+				{//如果不同，次数肯定要+1，加在dp 的上和左和左上的最小值
+					dp[i][j] = min(dp[i - 1][j], dp[i][j - 1]);
+					dp[i][j] = min(dp[i][j], dp[i - 1][j - 1]) + 1;
+				}
+			}
+		}
+		return dp[leng1][leng2];
+	}
+};
