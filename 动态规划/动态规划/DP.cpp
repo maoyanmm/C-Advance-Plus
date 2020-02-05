@@ -308,3 +308,38 @@ public:
 		return dp[leng1][leng2];
 	}
 };
+
+
+class Solution {
+public:
+	int numDistinct(string S, string T) {
+		int s_leng = S.size();
+		int t_leng = T.size();
+		vector<vector<int> > dp(t_leng + 1, vector<int>(s_leng + 1, 0));
+		//子问题：T的前i个字符串 在 S的前j个字符串 中有多少个子串
+		//第一行代表：空字符串在S的前0个、前1个...前s_leng个中有多少个子串
+		//很显然第一行都是1，因为只有给S中的字符全部删去，才能是空字符
+		for (int i = 0; i < s_leng + 1; ++i)
+		{
+			dp[0][i] = 1;
+		}
+		for (int i = 1; i < t_leng + 1; ++i)
+		{
+			for (int j = 1; j < s_leng + 1; ++j)
+			{//如果相同，等于左上+左：
+				//现在相对于左上来说是：S多加了一个字符，T也多加了一个字符，去匹配
+				//现在相对于左来说是：多匹配了S的一个字符
+				if (S[j - 1] == T[i - 1])
+				{
+					dp[i][j] = dp[i - 1][j - 1] + dp[i][j - 1];
+				}
+				else
+				{//如果不同，就等于左边的dp值：意思是如果T的前i个字符 匹配S的前j个字符时，如果第i个和第j个字符不相等，
+					//那么不加这个第j个字符的子串和加了这个第j个字符的子串去匹配的子串数，答案都是一样的
+					dp[i][j] = dp[i][j - 1];
+				}
+			}
+		}
+		return dp[t_leng][s_leng];
+	}
+};
