@@ -16,6 +16,7 @@ public:
 	void delete_by_name(const std::string& filename);
 	//通过MD5值删除文件
 	void delete_by_MD5(const std::string& MD5num);
+	void delete_by_MD5_lv2(const std::string& MD5num);
 	//删除所有拷贝的文件
 	void delete_all_copy();
 	//删除你指定名字的文件
@@ -23,7 +24,6 @@ public:
 
 	void showCopylist();
 	void showAllfile();
-	void showMD5map();
 private:
 	std::unordered_set<std::string> _files_list;
 	//存放file->MD5值

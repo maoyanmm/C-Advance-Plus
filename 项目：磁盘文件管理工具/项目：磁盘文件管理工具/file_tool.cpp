@@ -38,6 +38,6 @@ void delete_file(const char* fileName)
 	}
 	else
 	{
-		std::cout << "delete file:" << fileName << "success!" << std::endl;
+		std::cout << "delete file:    " << fileName << "     success!" << std::endl;
 	}
 }

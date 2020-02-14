@@ -4,6 +4,7 @@
 #include<vector>
 #include"file_tool.h"
 #include"file_manager.h"
+#include"APP¡ªfile_manager.h"
 
 void test_changeHex()
 {
@@ -46,13 +47,20 @@ void test_scan_dir()
 	fm.scan_dir(".");
 }
 
+void test_APP¡ªfile_manager()
+{
+	file_app fm;
+	fm.menu();
+}
+
 int main()
 {
 	/*test_changeHex();*/
 	/*test_getStringMD5();*/
 	/*test_getFileMD5();*/
 	/*test_search_dir();*/
-	test_scan_dir();
+	/*test_scan_dir();*/
+	test_APP¡ªfile_manager();
 	system("pause");
 	return 0;
 }

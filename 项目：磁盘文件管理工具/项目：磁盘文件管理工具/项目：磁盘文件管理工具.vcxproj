@@ -64,12 +64,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="APP—file_manager.cpp" />
     <ClCompile Include="file_manager.cpp" />
     <ClCompile Include="file_tool.cpp" />
     <ClCompile Include="project_MD5.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="APP—file_manager.h" />
     <ClInclude Include="file_manager.h" />
     <ClInclude Include="file_tool.h" />
     <ClInclude Include="project_MD5.h" />
