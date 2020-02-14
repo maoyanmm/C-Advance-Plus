@@ -1,7 +1,9 @@
+#pragma once
 #include<iostream>
 #include"project_MD5.h"
 #include<vector>
-#include"file_search.hpp"
+#include"file_tool.h"
+#include"file_manager.h"
 
 void test_changeHex()
 {
@@ -23,7 +25,6 @@ void test_getFileMD5()
 	MD5 md5;
 	const char* file1 = "MD5test1.txt";
 	std::cout << md5.getFileMD5(file1) << std::endl;
-	md5.reset();
 }
 
 void test_search_dir()
@@ -31,7 +32,7 @@ void test_search_dir()
 	std::string path;
 	std::cout << "ÇëÊäÈëÄ¿Â¼£º" << std::endl;
 	std::getline(std::cin, path);
-	std::vector<std::string> subdir;
+	std::unordered_set<std::string> subdir;
 	search_dir(path, subdir);
 	for (auto& e : subdir)
 	{
@@ -39,12 +40,19 @@ void test_search_dir()
 	}
 }
 
+void test_scan_dir()
+{
+	FileManager fm;
+	fm.scan_dir(".");
+}
+
 int main()
 {
 	/*test_changeHex();*/
 	/*test_getStringMD5();*/
 	/*test_getFileMD5();*/
-	test_search_dir();
+	/*test_search_dir();*/
+	test_scan_dir();
 	system("pause");
 	return 0;
 }

@@ -21,12 +21,21 @@
     <ClCompile Include="test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="file_manager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="file_tool.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="project_MD5.h">
       <Filter>源文件</Filter>
     </ClInclude>
-    <ClInclude Include="file_search.hpp">
+    <ClInclude Include="file_manager.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="file_tool.h">
       <Filter>源文件</Filter>
     </ClInclude>
   </ItemGroup>

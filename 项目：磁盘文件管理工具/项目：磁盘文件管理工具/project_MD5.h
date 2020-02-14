@@ -1,3 +1,4 @@
+#pragma once
 #include<string>
 #define CHUNK_BYTE 64
 typedef unsigned int uint_32;
