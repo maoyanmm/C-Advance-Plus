@@ -28,18 +28,18 @@ void test_getFileMD5()
 	std::cout << md5.getFileMD5(file1) << std::endl;
 }
 
-void test_search_dir()
-{
-	std::string path;
-	std::cout << "请输入目录：" << std::endl;
-	std::getline(std::cin, path);
-	std::unordered_set<std::string> subdir;
-	search_dir(path, subdir);
-	for (auto& e : subdir)
-	{
-		std::cout << e << std::endl;
-	}
-}
+//void test_search_dir()
+//{
+//	std::string path;
+//	std::cout << "请输入目录：" << std::endl;
+//	std::getline(std::cin, path);
+//	std::unordered_set<std::string> subdir;
+//	search_dir(path, subdir,allFilesName);
+//	for (auto& e : subdir)
+//	{
+//		std::cout << e << std::endl;
+//	}
+//}
 
 void test_scan_dir()
 {

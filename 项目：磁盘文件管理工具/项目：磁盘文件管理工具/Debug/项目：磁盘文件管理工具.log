@@ -1,9 +1,6 @@
-﻿生成启动时间为 2020/2/14 23:13:59。
+﻿生成启动时间为 2020/2/15 17:32:42。
      1>项目“F:\Visual studio 2013编程\代码文件\C-Advance-Plus\项目：磁盘文件管理工具\项目：磁盘文件管理工具\项目：磁盘文件管理工具.vcxproj”在节点 2 上(Build 个目标)。
-     1>ClCompile:
-         F:\Visual studio 2013编程\VC\bin\CL.exe /c /I"F:\Visual studio 2013编程\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt file_manager.cpp
-         file_manager.cpp
-       Link:
+     1>Link:
          F:\Visual studio 2013编程\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\Visual studio 2013编程\代码文件\C-Advance-Plus\项目：磁盘文件管理工具\Debug\项目：磁盘文件管理工具.exe" /INCREMENTAL /NOLOGO /LIBPATH:"F:\Visual studio 2013编程\Visual Leak Detector\lib\Win32" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\Visual studio 2013编程\代码文件\C-Advance-Plus\项目：磁盘文件管理工具\Debug\项目：磁盘文件管理工具.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\Visual studio 2013编程\代码文件\C-Advance-Plus\项目：磁盘文件管理工具\Debug\项目：磁盘文件管理工具.lib" /MACHINE:X86 "Debug\APP—file_manager.obj"
          Debug\file_manager.obj
          Debug\file_tool.obj
@@ -14,4 +11,4 @@
 
 生成成功。
 
-已用时间 00:00:01.39
+已用时间 00:00:00.55
