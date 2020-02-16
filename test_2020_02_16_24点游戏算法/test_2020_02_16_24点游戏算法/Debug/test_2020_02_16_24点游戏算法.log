@@ -1,0 +1,10 @@
+﻿生成启动时间为 2020/2/16 19:49:15。
+     1>项目“F:\Visual studio 2013编程\代码文件\test_2020_02_16_24点游戏算法\test_2020_02_16_24点游戏算法\test_2020_02_16_24点游戏算法.vcxproj”在节点 2 上(ClCompile 个目标)。
+     1>ClCompile:
+         F:\Visual studio 2013编程\VC\bin\CL.exe /c /I"F:\Visual studio 2013编程\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt "test_24点游戏算法.cpp"
+         test_24点游戏算法.cpp
+     1>已完成生成项目“F:\Visual studio 2013编程\代码文件\test_2020_02_16_24点游戏算法\test_2020_02_16_24点游戏算法\test_2020_02_16_24点游戏算法.vcxproj”(ClCompile 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.95
