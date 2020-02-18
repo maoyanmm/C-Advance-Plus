@@ -9,17 +9,18 @@ class FileManager
 public:
 	//扫描输入路径下的文件
 	void scan_dir(const std::string& path);
+	//将文件与MD5存入多个关联式容器
 	void get_MD5_to_file();
 	//得到拷贝的文件列表
 	void get_copy_list();
-	//通过名字删除文件
+	//通过文件名删除文件
 	void delete_by_name(const std::string& filename);
 	//通过MD5值删除文件
 	void delete_by_MD5(const std::string& MD5num);
 	void delete_by_MD5_lv2(const std::string& MD5num);
 	//删除所有拷贝的文件
 	void delete_all_copy();
-	//删除你指定名字的文件
+	//删除模糊匹配文件名的文件
 	void delete_by_match_name(const std::string& filename);
 
 	void showCopylist();

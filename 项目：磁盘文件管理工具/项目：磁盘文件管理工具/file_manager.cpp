@@ -29,38 +29,7 @@ void FileManager::get_MD5_to_file()
 	}
 
 }
-//得到拷贝的文件列表，将单个的文件从文件列表剔除（不是删除文件）
-//void FileManager::get_copy_list()
-//{
-//	_fileTomd5.clear();
-//	//不能用范围for，因为下面涉及删除的操作，会导致迭代器失效
-//	auto it = _md5Tofile.begin();
-//	while (it != _md5Tofile.end())
-//	{
-//		//如果有相同的内容的文件
-//		if (_md5Tofile.count(it->first) > 1)
-//		{
-//			//得到这个相同的md5值的文件的范围
-//			auto pairIt = _md5Tofile.equal_range(it->first);
-//			auto begin = pairIt.first;
-//			//遍历MD5值相同的文件
-//			while (begin != pairIt.second)
-//			{
-//				//和下面的else对应，也就是最后两个map存储的东西一致
-//				_fileTomd5.insert(make_pair(begin->second, begin->first));
-//				++begin;
-//			}
-//			it = pairIt.second;
-//		}
-//		else
-//		{
-//			_files_list.erase(it->second);
-//			//如果是单个的就将它剔除
-//			it = _md5Tofile.erase(it);
-//		}
-//	}
-//}
-//通过名字删除文件(删除和这个文件的内容相同的其他文件，这个文件不删除）
+
 void FileManager::delete_by_name(const std::string& filename)
 {
 	std::string MD5num = _fileTomd5[filename];
