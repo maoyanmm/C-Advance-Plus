@@ -24,7 +24,7 @@ void test_getStringMD5()
 void test_getFileMD5()
 {
 	MD5 md5;
-	const char* file1 = "MD5test1.txt";
+	const char* file1 = "MD5test2.txt";
 	std::cout << md5.getFileMD5(file1) << std::endl;
 }
 
@@ -60,7 +60,8 @@ int main()
 	/*test_getFileMD5();*/
 	/*test_search_dir();*/
 	/*test_scan_dir();*/
-	test_APP¡ªfile_manager();
+	test_getFileMD5();
+	/*test_APP¡ªfile_manager();*/
 	system("pause");
 	return 0;
 }
