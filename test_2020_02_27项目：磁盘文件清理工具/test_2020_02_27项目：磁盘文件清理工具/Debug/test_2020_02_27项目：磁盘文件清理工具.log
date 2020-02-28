@@ -1,15 +1,10 @@
-﻿生成启动时间为 2020/2/27 21:29:21。
-     1>项目“F:\Visual studio 2013编程\代码文件\test_2020_02_27项目：磁盘文件清理工具\test_2020_02_27项目：磁盘文件清理工具\test_2020_02_27项目：磁盘文件清理工具.vcxproj”在节点 2 上(Build 个目标)。
+﻿生成启动时间为 2020/2/28 15:56:06。
+     1>项目“F:\Visual studio 2013编程\代码文件\C-Advance-Plus\test_2020_02_27项目：磁盘文件清理工具\test_2020_02_27项目：磁盘文件清理工具\test_2020_02_27项目：磁盘文件清理工具.vcxproj”在节点 2 上(ClCompile 个目标)。
      1>ClCompile:
-         F:\Visual studio 2013编程\VC\bin\CL.exe /c /I"F:\Visual studio 2013编程\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt test.cpp
-         test.cpp
-       Link:
-         F:\Visual studio 2013编程\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"F:\Visual studio 2013编程\代码文件\test_2020_02_27项目：磁盘文件清理工具\Debug\test_2020_02_27项目：磁盘文件清理工具.exe" /INCREMENTAL /NOLOGO /LIBPATH:"F:\Visual studio 2013编程\Visual Leak Detector\lib\Win32" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"F:\Visual studio 2013编程\代码文件\test_2020_02_27项目：磁盘文件清理工具\Debug\test_2020_02_27项目：磁盘文件清理工具.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"F:\Visual studio 2013编程\代码文件\test_2020_02_27项目：磁盘文件清理工具\Debug\test_2020_02_27项目：磁盘文件清理工具.lib" /MACHINE:X86 Debug\file_tool.obj
-         Debug\MD5.obj
-         Debug\test.obj
-         test_2020_02_27项目：磁盘文件清理工具.vcxproj -> F:\Visual studio 2013编程\代码文件\test_2020_02_27项目：磁盘文件清理工具\Debug\test_2020_02_27项目：磁盘文件清理工具.exe
-     1>已完成生成项目“F:\Visual studio 2013编程\代码文件\test_2020_02_27项目：磁盘文件清理工具\test_2020_02_27项目：磁盘文件清理工具\test_2020_02_27项目：磁盘文件清理工具.vcxproj”(Build 个目标)的操作。
+         F:\Visual studio 2013编程\VC\bin\CL.exe /c /I"F:\Visual studio 2013编程\Visual Leak Detector\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt file_manager.cpp
+         file_manager.cpp
+     1>已完成生成项目“F:\Visual studio 2013编程\代码文件\C-Advance-Plus\test_2020_02_27项目：磁盘文件清理工具\test_2020_02_27项目：磁盘文件清理工具\test_2020_02_27项目：磁盘文件清理工具.vcxproj”(ClCompile 个目标)的操作。
 
 生成成功。
 
-已用时间 00:00:01.25
+已用时间 00:00:01.73

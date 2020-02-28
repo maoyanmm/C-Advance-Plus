@@ -2,6 +2,7 @@
 #include<iostream>
 #include"MD5.h"
 #include"file_tool.h"
+#include"file_manager.h"
 
 void test_Hex_to_MD5()
 {
@@ -33,9 +34,31 @@ void test_delete_file()
 	delete_file("F:\\Visual studio 2013编程\\代码文件\\test_2020_02_27项目：磁盘文件清理工具\\test_2020_02_27项目：磁盘文件清理工具\\MD5test2.txt");
 }
 
+void test_files_scanner()
+{
+	FileManager fm;
+	std::string path = "F:\\程序测试的文件夹";
+	fm.files_scanner(path);
+}
+
+void test_delete_file_for_name()
+{
+	FileManager fm;
+	std::string name = ".\\MD5test3.txt";
+	fm.delete_file_for_name(name);
+}
+
+void test_delete_all_copy()
+{
+	FileManager fm;
+	std::string path = "F:\\程序测试的文件夹";
+	fm.files_scanner(path);
+	fm.delete_all_copy();
+}
+
 int main()
 {
-	test_delete_file();
+	test_delete_all_copy();
 	system("pause");
 	return 0;
 }

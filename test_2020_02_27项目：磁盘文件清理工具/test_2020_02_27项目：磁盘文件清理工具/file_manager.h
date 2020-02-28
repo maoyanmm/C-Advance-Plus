@@ -13,16 +13,19 @@ public:
 	//展示所有拷贝文件
 	void show_copy();
 	//展示所有文件
-	void show_copy();
-	//删除所有拷贝文件
+	void show_files();
+	//删除所有拷贝文件（保留一份）
 	void delete_all_copy();
 	//删除指定文件
 	void delete_file_for_name(const std::string& fileName);
+	//删除指定文件的副本
+	void delete_copy_file_for_name(const std::string& fileName);
 	//删除模糊文件名的文件
 	void delete_misty_file_for_name(const std::string& mistyFileName);
 	
 private:
-	std::unordered_set<std::string> filesName;
-	std::unordered_map<std::string, std::string> MD5toFile;
-	std::unordered_map<std::string, std::string> FiletoMD5;
+	std::unordered_set<std::string> _filesName;
+	std::unordered_multimap<std::string, std::string> _MD5toFile;
+	std::unordered_map<std::string, std::string> _FiletoMD5;
+	MD5 _md5;
 };
