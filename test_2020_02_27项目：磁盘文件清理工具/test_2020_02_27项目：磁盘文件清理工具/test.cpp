@@ -58,7 +58,6 @@ void test_delete_all_copy()
 
 int main()
 {
-	test_delete_all_copy();
 	system("pause");
 	return 0;
 }

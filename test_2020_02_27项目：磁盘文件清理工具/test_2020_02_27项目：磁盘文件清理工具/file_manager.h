@@ -22,6 +22,8 @@ public:
 	void delete_copy_file_for_name(const std::string& fileName);
 	//删除模糊文件名的文件
 	void delete_misty_file_for_name(const std::string& mistyFileName);
+	//查找文件是否存在
+	bool search_file(const std::string& fileName);
 	
 private:
 	std::unordered_set<std::string> _filesName;

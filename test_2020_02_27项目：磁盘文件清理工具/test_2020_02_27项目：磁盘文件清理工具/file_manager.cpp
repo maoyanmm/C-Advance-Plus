@@ -111,12 +111,33 @@ bool FileManager::search_file(const std::string& fileName)
 //删除指定文件的副本
 void FileManager::delete_copy_file_for_name(const std::string& fileName)
 {
+	//用来删除的时候遍历用，因为如果用原来的容器去删除，会导致迭代器失效
+	std::unordered_multimap<std::string, std::string> tmp_MD5toFile = _MD5toFile;
 	if (!search_file(fileName))
 	{
 		std::cout << "没有该文件： " << fileName << std::endl;
 		return;
 	}
-
+	std::string fileMd5 = _FiletoMD5[fileName];
+	//得到该文件内容相同的文件集的范围
+	auto pairIt = tmp_MD5toFile.equal_range(fileMd5);
+	auto start = pairIt.first;
+	auto finish = pairIt.second;
+	auto tmp_start = start;
+	//如果++后的迭代器是最后的，表示只有一个该内容的文件
+	if (++tmp_start == finish)
+	{
+		std::cout << "只有这一个文件，没有副本" << std::endl;
+		return;
+	}
+	for (; start != finish; ++start)
+	{
+		//要保留指定文件名的文件，其他副本删除
+		if (strcmp(start->second.c_str(), fileName.c_str()) != 0)
+		{
+			delete_file_for_name(start->second);
+		}
+	}
 }
 
 //删除模糊文件名的文件
