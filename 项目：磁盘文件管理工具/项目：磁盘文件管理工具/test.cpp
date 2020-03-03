@@ -60,8 +60,8 @@ int main()
 	/*test_getFileMD5();*/
 	/*test_search_dir();*/
 	/*test_scan_dir();*/
-	test_getFileMD5();
-	/*test_APP¡ªfile_manager();*/
+	/*test_getFileMD5();*/
+	test_APP¡ªfile_manager();
 	system("pause");
 	return 0;
 }

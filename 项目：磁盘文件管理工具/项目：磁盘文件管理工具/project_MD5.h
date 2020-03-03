@@ -49,6 +49,7 @@ public:
 
 	std::string getStringMD5(const std::string& str);
 	std::string getFileMD5(const char* filePath);
+	std::string getFileMD5_lv2(const char* filePath);
 private:
 
 	//循环左移的数组

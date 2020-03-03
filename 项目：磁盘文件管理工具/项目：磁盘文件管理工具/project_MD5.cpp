@@ -4,7 +4,7 @@
 #include<math.h>
 #include<iostream>
 #include<fstream>
-
+#include<time.h>
 
 //初始化static成员：因为虽然static只会在当前源文件中使用，但是该成员是放在头文件里面声明的。
 //如果放在头文件里面定义，而且头文件被很多.cpp/.cc文件包含了，那么可能在其他.cpp/.cc文件中造成重定义
@@ -159,7 +159,7 @@ std::string MD5::getStringMD5(const std::string& str)
 	return Hex_change_MD5(_a).append(Hex_change_MD5(_b)).append(Hex_change_MD5(_c)).append(Hex_change_MD5(_d));
 }
 
-std::string MD5::getFileMD5(const char* filePath)
+std::string MD5::getFileMD5_lv2(const char* filePath)
 {
 	std::ifstream in_file(filePath,std::ifstream::binary);
 	if (!in_file.is_open())
@@ -167,14 +167,48 @@ std::string MD5::getFileMD5(const char* filePath)
 		perror("file open failed!");
 
 	}
+	//整体全部读取。
+	in_file.seekg(0, in_file.end);
+	int length = in_file.tellg();
+	in_file.seekg(0, in_file.beg);
+	char* totalData = new char[length];
+	//全部读取到totalDta里
+	in_file.read(totalData, length);
+	//数据块的个数
+	int chunkNums = length / CHUNK_BYTE;
+	//最后的数据块大小
+	int lastChunk = length % CHUNK_BYTE;
+	_totalByte = length;
+	_lastByte = lastChunk;
+	//循环条件是将每一个数据块读完
+	while (chunkNums--)
+	{
+		memcpy(_chunk, totalData, CHUNK_BYTE);
+		cal_MD5((uint_32*)_chunk);
+		//这一步是偏移totalData这个char*指针，读取下一块（64byte）的数据
+		totalData += CHUNK_BYTE;
+	}
+	//把最后的数据读进去
+	memcpy(_chunk, totalData,lastChunk);
+	cal_finalMD5();
+	return Hex_change_MD5(_a).append(Hex_change_MD5(_b)).append(Hex_change_MD5(_c)).append(Hex_change_MD5(_d));
+}
+
+
+std::string MD5::getFileMD5(const char* filePath)
+{
+	std::ifstream in_file(filePath, std::ifstream::binary);
+	if (!in_file.is_open())
+	{
+		perror("file open failed!");
+
+	}
+	clock_t start, stop;
+	double duration;
+	start = clock();
+
 	while (!in_file.eof())
 	{
-		//整体全部读取。以空间换时间
-		/*in_file.seekg(0, in_file.end);
-		int length = in_file.tellg();
-		in_file.seekg(0, in_file.beg);
-		char* totalData = new char[length];
-		in_file.read(totalData, length);*/
 		in_file.read(_chunk, CHUNK_BYTE);
 		if (in_file.gcount() != CHUNK_BYTE)
 		{
@@ -186,7 +220,9 @@ std::string MD5::getFileMD5(const char* filePath)
 	_lastByte = in_file.gcount();
 	_totalByte += in_file.gcount();
 	cal_finalMD5();
-		
+
+	stop = clock();
+	duration = (double)(stop - start) / CLK_TCK;
+	std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~耗时：     " << duration << std::endl;
 	return Hex_change_MD5(_a).append(Hex_change_MD5(_b)).append(Hex_change_MD5(_c)).append(Hex_change_MD5(_d));
 }
-

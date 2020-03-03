@@ -1,20 +1,32 @@
 #pragma once
 #include"file_manager.h"
 #include"file_tool.h"
+#include<time.h>
+
 
 //扫描输入路径下的文件
 void FileManager::scan_dir(const std::string& path)
 {
+	clock_t start, stop;
+	double duration;
 	//扫描前，先将文件列表清空
 	_files_list.clear();
 	//将扫描到的文件存放到_files_list
 	search_dir(path,_files_list);
 	std::cout << "所有文件：" << std::endl << std::endl;
+	start = clock();
 	showAllfile();
+	stop = clock();
+	duration = (double)(stop - start) / CLK_TCK;
+	std::cout << "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$耗时：     " << duration << std::endl;
 	//将文件和对应的md5存放
+	start = clock();
 	get_MD5_to_file();
 	std::cout << "整理后：" << std::endl << std::endl;
 	showCopylist();
+	stop = clock();
+	duration = (double)(stop - start) / CLK_TCK;
+	std::cout << "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$耗时：     " << duration << std::endl;
 }
 void FileManager::get_MD5_to_file()
 {
